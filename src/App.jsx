@@ -1,10 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import './App.scss'
+
+const backend_url = 'http://localhost:3033/jobs';
 
 function App() {
   const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setJobs((await axios.get(backend_url)).data);
+    })();
+  }, []);
+
   return (
     <div className="App">
       <h1>Jobs</h1>
@@ -12,5 +20,4 @@ function App() {
     </div>
   )
 }
-
 export default App
