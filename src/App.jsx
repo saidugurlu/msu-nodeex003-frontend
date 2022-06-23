@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss'
 
-const backend_url = 'http://localhost:3033/jobs';
+//const backend_url = 'http://localhost:3033/jobs';
+const backend_url = import.meta.env.VITE_BACKEND_URL
 
 function App() {
   const [jobs, setJobs] = useState([]);
